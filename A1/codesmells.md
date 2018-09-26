@@ -27,3 +27,20 @@ how would you refactor the code?]
 ==== End template ====
 
 # List of code smells
+
+## Code Smell: [Long Method]
+
+### Code Smell Category: [Bloaters]
+
+### List of classes and line numbers involved:
+
+* [WarehouseSimulation.start(WarehouseSimulation.java: 41)]
+
+### Description:
+
+[A method like WarehouseSimulation.start is expected to write within 10 lines. which make the code hard to trace. ]
+
+### Solution:
+
+[Looking through the method like start, too many conditional statements cause the long method, so decompose the
+conditional, extract some condition to a new boolean function then call them. ]
