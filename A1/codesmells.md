@@ -44,3 +44,20 @@ how would you refactor the code?]
 
 [Looking through the method like start, too many conditional statements cause the long method, so decompose the
 conditional, extract some condition to a new boolean function then call them. ]
+
+## Code Smell: [Large Class]
+
+### Code Smell Category: [Bloaters]
+
+### List of classes and line numbers involved:
+
+* [WarehouseManager(WarehouseManager.java:13)]
+
+### Description:
+
+[There are 19 similar attributes and methods in the WarehouseManager class, making the class large, complicated to use]
+
+### Solution:
+
+[Looking through the WarehouseManager class, many attributes have similar ways of functioning while different type,
+which can be extracted as some subclass, and construct the original WarehouseManager as interface or abstract class]
