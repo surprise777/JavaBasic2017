@@ -61,3 +61,20 @@ conditional, extract some condition to a new boolean function then call them. ]
 
 [Looking through the WarehouseManager class, many attributes have similar ways of functioning while different type,
 which can be extracted as some subclass, and construct the original WarehouseManager as interface or abstract class]
+
+## Code Smell: [Dead Code]
+
+### Code Smell Category: [Dispensables]
+
+### List of classes and line numbers involved:
+
+* [Worker(Worker.java:3)]
+
+### Description:
+
+[This class has never been used, comparing with Picker and Sequencer. ]
+
+### Solution:
+
+[From WarehouseSimulation.java we could see workers are specific to pickers and sequencers or scan events, so Worker
+class can be constructed to abstract class and modify Picker and Sequencer to its subclass, or delate this class. ]
