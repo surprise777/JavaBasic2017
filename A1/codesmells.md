@@ -96,3 +96,20 @@ class can be constructed to abstract class and modify Picker and Sequencer to it
 ### Solution:
 
 [OrderListManager.java can be deleted, or make OrderListManager class as super class of WarehouseManager.]
+
+## Code Smell: [Middle Man]
+
+### Code Smell Category: [Couplers]
+
+### List of classes and line numbers involved:
+
+* [GenericPathSoftware(GenericPathSoftware.java: 8)]
+
+### Description:
+
+[In GenericPathSoftware class, there is only one method passing argument from other class: pickerOrderList. And this
+class is written even without its constructor. So it is a middle man not necessarly existed.]
+
+### Solution:
+
+[Move GenericPathSoftware class to a method into pickerOrderList, that is move Line 16-18 to PickerOrderList.java]
