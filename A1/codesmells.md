@@ -60,8 +60,9 @@ call them. ]
 
 ### Solution:
 
-[Looking through the WarehouseManager class, many attributes have similar ways of functioning while different type,
-which can be extracted as some subclass, and construct the original WarehouseManager as interface or abstract class]
+[Looking through the WarehouseManager class, many attributes have similar ways of functioning while different category:
+picker and sequencer, which can be extracted as subclass: PickingOrderManager and SequenceOrderManager, put original
+method in different subclass as their functional ways and construct the original WarehouseManager as super class.]
 
 ## Code Smell: [Dead Code]
 
