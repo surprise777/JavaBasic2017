@@ -38,12 +38,13 @@ how would you refactor the code?]
 
 ### Description:
 
-[A method like WarehouseSimulation.start is expected to write within 10 lines. which make the code hard to trace. ]
+[A method WarehouseSimulation.start is expected to write within 10 lines. which make the code hard to trace. ]
 
 ### Solution:
 
-[Looking through the method like start, too many conditional statements cause the long method, so decompose the
-conditional, extract some condition to a new boolean function then call them. ]
+[Looking through the method start, too many if statements ("Order","Picker", "Sequencer"), so decompose the
+conditional, extract each condition to boolean functions(Line 52-64 to isOrder(), Line 65-77 to isPicker(), etc)then
+call them. ]
 
 ## Code Smell: [Large Class]
 
