@@ -70,7 +70,7 @@ class BoardManager implements Serializable {
      */
     boolean isValidTap(int position) {
 
-        int row = position / Board.NUM_COLS;
+        int row = position / Board.NUM_ROWS;
         int col = position % Board.NUM_COLS;
         int blankId = board.numTiles();
         // Are any of the 4 the blank tile?
