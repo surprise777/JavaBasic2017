@@ -94,6 +94,20 @@ class BoardManager implements Serializable {
         int row = position / Board.NUM_ROWS;
         int col = position % Board.NUM_COLS;
         int blankId = board.numTiles();
+        if (this.isValidTap(position)) {
+            Tile above = row == 0 ? null : board.getTile(row - 1, col);
+            Tile below = row == Board.NUM_ROWS - 1 ? null : board.getTile(row + 1, col);
+            Tile left = col == 0 ? null : board.getTile(row, col - 1);
+            Tile right = col == Board.NUM_COLS - 1 ? null : board.getTile(row, col + 1);
+            if (left != null && left.getId() == blankId)
+                board.swapTiles(row, col, row, col - 1);
+            else if (above != null && above.getId() == blankId)
+                board.swapTiles(row, col, row - 1, col);
+            else if (below != null && below.getId() == blankId)
+                board.swapTiles(row, col, row + 1, col);
+            else if (right != null && right.getId() == blankId)
+                board.swapTiles(row, col, row, col + 1);
+        }
     }
 
 }
