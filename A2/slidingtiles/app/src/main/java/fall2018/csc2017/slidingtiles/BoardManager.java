@@ -50,9 +50,16 @@ class BoardManager implements Serializable {
      * @return whether the tiles are in row-major order
      */
     boolean puzzleSolved() {
-        boolean solved = true;
-        // TODO: fix me
-        return solved;
+        for (int row = 0; row != Board.NUM_ROWS; row++) {
+            for (int col = 0; col != Board.NUM_COLS - 1; col++) {
+                if(board.getTile(row, col).getId() > board.getTile(row, col + 1).getId())
+                    return false;
+            }
+            if((row != Board.NUM_ROWS - 1) && (board.getTile(row, Board.NUM_COLS - 1).getId() >
+                        board.getTile(row + 1, 0).getId()))
+                    return false;
+        }
+        return true;
     }
 
     /**
