@@ -52,12 +52,12 @@ class BoardManager implements Serializable {
     boolean puzzleSolved() {
         for (int row = 0; row != Board.NUM_ROWS; row++) {
             for (int col = 0; col != Board.NUM_COLS - 1; col++) {
-                if(board.getTile(row, col).getId() > board.getTile(row, col + 1).getId())
+                if (board.getTile(row, col).getId() > board.getTile(row, col + 1).getId())
                     return false;
             }
-            if((row != Board.NUM_ROWS - 1) && (board.getTile(row, Board.NUM_COLS - 1).getId() >
-                        board.getTile(row + 1, 0).getId()))
-                    return false;
+            if ((row != Board.NUM_ROWS - 1) && (board.getTile(row, Board.NUM_COLS - 1).getId() >
+                    board.getTile(row + 1, 0).getId()))
+                return false;
         }
         return true;
     }
@@ -94,9 +94,6 @@ class BoardManager implements Serializable {
         int row = position / Board.NUM_ROWS;
         int col = position % Board.NUM_COLS;
         int blankId = board.numTiles();
-
-        // TODO: figure out when to call board.swapTiles. Specifically, if any of the neighbouring
-        // tiles is the blank tile, swap by calling Board's swap method.
     }
 
 }
