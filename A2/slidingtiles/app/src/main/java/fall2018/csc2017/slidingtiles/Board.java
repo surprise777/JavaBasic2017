@@ -1,5 +1,7 @@
 package fall2018.csc2017.slidingtiles;
 
+import android.support.annotation.NonNull;
+
 import java.util.Observable;
 
 import java.io.Serializable;
@@ -9,9 +11,8 @@ import java.util.List;
 
 /**
  * The sliding tiles board.
- * TODO: Make this implement Iterable<Tile>.
  */
-public class Board extends Observable implements Serializable {
+public class Board extends Observable implements Serializable, Iterable<Tile> {
 
     /**
      * The number of rows.
@@ -85,5 +86,31 @@ public class Board extends Observable implements Serializable {
         return "Board{" +
                 "tiles=" + Arrays.toString(tiles) +
                 '}';
+    }
+
+    @NonNull
+    public Iterator<Tile> iterator() {
+        return new BoardIterator();
+    }
+
+    private class BoardIterator implements Iterator<Tile> {
+        /**
+         * The position of next tile in the tiles.
+         */
+        int nextPosition = 0;
+
+        @Override
+        public boolean hasNext() {
+            return nextPosition < NUM_COLS * NUM_ROWS;
+        }
+
+        @Override
+        public Tile next() {
+            int row = nextPosition / NUM_ROWS;
+            int col = nextPosition % NUM_COLS;
+            Tile nextTile = tiles[row][col];
+            nextPosition++;
+            return nextTile;
+        }
     }
 }
