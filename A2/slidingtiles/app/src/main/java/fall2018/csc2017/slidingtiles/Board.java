@@ -46,11 +46,11 @@ public class Board extends Observable implements Serializable {
 
     /**
      * Return the number of tiles on the board.
+     *
      * @return the number of tiles on the board
      */
     int numTiles() {
-        // TODO: fix me
-        return -1;
+        return NUM_ROWS * NUM_COLS;
     }
 
     /**
